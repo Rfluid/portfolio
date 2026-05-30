@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "hero": {
+    "greeting": "Olá, eu sou",
+    "name": "Ruy Vieira",
+    "roles": [
+      "Engenheiro de Software",
+      "Criador Open-Source",
+      "Engenheiro de IA / RAG",
+      "Desenvolvedor Full-Stack"
+    ],
+    "tagline": "Construo ferramentas open-source em IA, sistemas type-safe e infraestrutura backend.",
+    "ctaProjects": "Ver Projetos",
+    "ctaContact": "Entrar em Contato",
+    "scroll": "Rolar"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "subtitle": "Um pouco sobre quem eu sou e o que eu faço.",
+    "p1": "Sou um engenheiro de software apaixonado por open-source. Meu trabalho abrange IA e geração aumentada por recuperação (RAG), frameworks type-safe em TypeScript e sistemas backend em Go e Python.",
+    "p2": "Valorizo a experiência do desenvolvedor, arquitetura limpa e ferramentas que tornam problemas difíceis em algo simples. Quando encontro uma dor recorrente, costumo transformá-la em uma biblioteca.",
+    "stackTitle": "Tecnologias que uso",
+    "focusTitle": "No que eu foco",
+    "focus": [
+      "Aplicações de IA / RAG & LLM",
+      "APIs type-safe & ferramentas para devs",
+      "Sistemas backend & infraestrutura",
+      "Arquitetura limpa e sustentável"
+    ]
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Trabalhos open-source dos quais me orgulho. Estrelas e linguagens vêm direto do GitHub.",
+    "featured": "Destaque",
+    "more": "Mais no GitHub",
+    "viewAll": "Ver todos os repositórios",
+    "code": "Código",
+    "demo": "Demo ao vivo",
+    "loading": "Carregando repositórios…",
+    "error": "Não foi possível carregar dados ao vivo — exibindo projetos selecionados.",
+    "stars": "estrelas"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Aberto a colaborações, contribuições open-source e problemas interessantes.",
+    "cta": "Vamos nos conectar",
+    "emailMe": "Me enviar e-mail"
+  },
+  "footer": {
+    "built": "Feito com React, Tailwind & Motion.",
+    "rights": "Todos os direitos reservados."
+  },
+  "theme": {
+    "toggle": "Alternar tema",
+    "light": "Claro",
+    "dark": "Escuro"
+  },
+  "language": {
+    "toggle": "Mudar idioma"
+  }
+}

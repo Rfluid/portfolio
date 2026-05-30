@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Ruy Vieira",
+    "roles": [
+      "Software Engineer",
+      "Open-Source Builder",
+      "AI / RAG Engineer",
+      "Full-Stack Developer"
+    ],
+    "tagline": "I build open-source tools across AI, type-safe systems, and backend infrastructure.",
+    "ctaProjects": "View Projects",
+    "ctaContact": "Get in Touch",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "A bit about who I am and what I do.",
+    "p1": "I'm a software engineer who loves shipping open-source. My work spans AI and retrieval-augmented generation, type-safe TypeScript frameworks, and backend systems in Go and Python.",
+    "p2": "I care about developer experience, clean architecture, and tools that make hard problems feel simple. When I find a recurring pain point, I tend to turn it into a library.",
+    "stackTitle": "Tech I work with",
+    "focusTitle": "What I focus on",
+    "focus": [
+      "AI / RAG & LLM applications",
+      "Type-safe APIs & developer tooling",
+      "Backend systems & infrastructure",
+      "Clean, maintainable architecture"
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Open-source work I'm proud of. Stars and languages are pulled live from GitHub.",
+    "featured": "Featured",
+    "more": "More on GitHub",
+    "viewAll": "View all repositories",
+    "code": "Code",
+    "demo": "Live demo",
+    "loading": "Loading repositories…",
+    "error": "Couldn't load live data — showing curated projects.",
+    "stars": "stars"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Open to collaborations, open-source contributions, and interesting problems.",
+    "cta": "Let's connect",
+    "emailMe": "Email me"
+  },
+  "footer": {
+    "built": "Built with React, Tailwind & Motion.",
+    "rights": "All rights reserved."
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "language": {
+    "toggle": "Change language"
+  }
+}
