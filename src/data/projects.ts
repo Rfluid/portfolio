@@ -98,6 +98,28 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     },
     tags: ["Go", "WhatsApp", "API"],
   },
+  {
+    owner: "Astervia",
+    repo: "zaphenath",
+    title: "Zaphenath",
+    blurb: {
+      en: "A Solidity smart-contract system for secure key-value storage with inactivity-based conditional access — role-based control and multi-user custodianship for sensitive data like wills or company secrets.",
+      pt: "Um sistema de contrato inteligente em Solidity para armazenamento chave-valor seguro com acesso condicional baseado em inatividade — controle por papéis e custódia multiusuário para dados sensíveis, como testamentos ou segredos corporativos.",
+      es: "Un sistema de contrato inteligente en Solidity para almacenamiento clave-valor seguro con acceso condicional basado en inactividad — control por roles y custodia multiusuario para datos sensibles, como testamentos o secretos corporativos.",
+    },
+    tags: ["Solidity", "Foundry", "Smart Contracts", "Web3"],
+  },
+  {
+    owner: "Astervia",
+    repo: "zaphenath-cli-client",
+    title: "Zaph CLI",
+    blurb: {
+      en: "A Rust command-line client for the Zaphenath protocol — manage time-locked, inactivity-based data access against any Ethereum-compatible RPC.",
+      pt: "Um cliente de linha de comando em Rust para o protocolo Zaphenath — gerencie acesso a dados time-locked, baseado em inatividade, contra qualquer RPC compatível com Ethereum.",
+      es: "Un cliente de línea de comandos en Rust para el protocolo Zaphenath — gestiona acceso a datos time-locked, basado en inactividad, contra cualquier RPC compatible con Ethereum.",
+    },
+    tags: ["Rust", "CLI", "Web3", "Ethereum"],
+  },
 ];
 
 /** Repos hidden from the live grid (featured above, or not portfolio-worthy). */
