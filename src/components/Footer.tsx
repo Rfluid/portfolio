@@ -1,4 +1,3 @@
-import { Heart } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SOCIALS } from "../data/socials";
 
@@ -26,11 +25,6 @@ export default function Footer() {
             </a>
           ))}
         </div>
-
-        <p className="flex items-center gap-1.5 text-xs text-slate-400">
-          {t("footer.built")}
-          <Heart size={12} className="fill-brand-3 text-brand-3" />
-        </p>
       </div>
     </footer>
   );

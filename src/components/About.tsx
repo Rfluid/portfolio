@@ -7,6 +7,8 @@ const STACK = [
   "TypeScript",
   "Python",
   "Go",
+  "Rust",
+  "gpui",
   "React",
   "Node.js",
   "LangChain",

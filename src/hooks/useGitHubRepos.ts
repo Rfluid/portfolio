@@ -107,6 +107,7 @@ export function useGitHubRepos() {
           .sort(
             (a, b) =>
               b.stargazers_count - a.stargazers_count ||
+              b.forks_count - a.forks_count ||
               a.name.localeCompare(b.name),
           );
 
