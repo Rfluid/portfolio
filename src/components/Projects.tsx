@@ -95,16 +95,11 @@ export default function Projects() {
 
       {/* Live grid */}
       {grid.length > 0 && (
-        <>
-          <h3 className="mb-6 mt-16 text-center font-mono text-sm font-semibold uppercase tracking-wider text-slate-400">
-            {t("projects.more")}
-          </h3>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {grid.map((p, i) => (
-              <ProjectCard key={p.name} data={p} index={i} />
-            ))}
-          </div>
-        </>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {grid.map((p, i) => (
+            <ProjectCard key={p.name} data={p} index={i} />
+          ))}
+        </div>
       )}
 
       <motion.div
