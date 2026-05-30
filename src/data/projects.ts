@@ -125,5 +125,8 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
 /** Repos hidden from the live grid (featured above, or not portfolio-worthy). */
 export const EXCLUDE_FROM_GRID = new Set<string>([
   "Rfluid/Rfluid", // profile readme
+  "Rfluid/portfolio", // this site
+  "Rfluid/insta-tools",
+  "Rfluid/useful-scripts",
   ...FEATURED_PROJECTS.map((p) => `${p.owner}/${p.repo}`),
 ]);

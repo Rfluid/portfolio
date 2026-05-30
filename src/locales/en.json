@@ -36,7 +36,7 @@
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "A selection of open-source work I'm proud of, alongside enterprise applications I've built. Stars and languages are pulled live from GitHub.",
+    "subtitle": "A selection of open-source work I'm proud of. Stars and languages are pulled live from GitHub.",
     "featured": "Featured",
     "more": "More on GitHub",
     "viewAll": "View all repositories",
