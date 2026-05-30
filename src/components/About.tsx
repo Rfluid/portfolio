@@ -20,6 +20,8 @@ const STACK = [
   "Redis",
   "Docker",
   "Terraform",
+  "AWS",
+  "GCP",
   "Solidity",
 ];
 
