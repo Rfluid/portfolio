@@ -34,11 +34,8 @@ export const SOCIALS: Social[] = [
   },
 ];
 
-/**
- * Public contact email. Left empty by default so a personal address isn't
- * published without an explicit choice. Set this to enable the "Email me" CTA.
- */
-export const EMAIL = "";
+/** Public contact email — enables the "Email me" CTA. */
+export const EMAIL = "ruy.vieiraneto@gmail.com";
 
 export const EMAIL_SOCIAL: Social | null = EMAIL
   ? { label: "Email", href: `mailto:${EMAIL}`, icon: Mail, handle: EMAIL }
