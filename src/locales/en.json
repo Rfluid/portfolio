@@ -10,11 +10,12 @@
     "name": "Ruy Vieira",
     "roles": [
       "Software Engineer",
+      "Rust Engineer",
       "Open-Source Builder",
       "AI / RAG Engineer",
       "Full-Stack Developer"
     ],
-    "tagline": "I build open-source tools across AI, type-safe systems, and backend infrastructure.",
+    "tagline": "I build software across AI, type-safe systems, and backend infrastructure — from open-source tools to enterprise applications.",
     "ctaProjects": "View Projects",
     "ctaContact": "Get in Touch",
     "scroll": "Scroll"
@@ -22,7 +23,7 @@
   "about": {
     "title": "About Me",
     "subtitle": "A bit about who I am and what I do.",
-    "p1": "I'm a software engineer who loves shipping open-source. My work spans AI and retrieval-augmented generation, type-safe TypeScript frameworks, and backend systems in Go and Python.",
+    "p1": "I'm a software engineer who builds both open-source tools and production enterprise applications. My work spans AI and retrieval-augmented generation, type-safe TypeScript frameworks, and backend systems in Rust, Go and Python.",
     "p2": "I care about developer experience, clean architecture, and tools that make hard problems feel simple. When I find a recurring pain point, I tend to turn it into a library.",
     "stackTitle": "Tech I work with",
     "focusTitle": "What I focus on",
@@ -35,7 +36,7 @@
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "Open-source work I'm proud of. Stars and languages are pulled live from GitHub.",
+    "subtitle": "A selection of open-source work I'm proud of, alongside enterprise applications I've built. Stars and languages are pulled live from GitHub.",
     "featured": "Featured",
     "more": "More on GitHub",
     "viewAll": "View all repositories",

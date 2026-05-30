@@ -10,11 +10,12 @@
     "name": "Ruy Vieira",
     "roles": [
       "Engenheiro de Software",
+      "Engenheiro Rust",
       "Criador Open-Source",
       "Engenheiro de IA / RAG",
       "Desenvolvedor Full-Stack"
     ],
-    "tagline": "Construo ferramentas open-source em IA, sistemas type-safe e infraestrutura backend.",
+    "tagline": "Desenvolvo software em IA, sistemas type-safe e infraestrutura backend — de ferramentas open-source a aplicações corporativas.",
     "ctaProjects": "Ver Projetos",
     "ctaContact": "Entrar em Contato",
     "scroll": "Rolar"
@@ -22,7 +23,7 @@
   "about": {
     "title": "Sobre Mim",
     "subtitle": "Um pouco sobre quem eu sou e o que eu faço.",
-    "p1": "Sou um engenheiro de software apaixonado por open-source. Meu trabalho abrange IA e geração aumentada por recuperação (RAG), frameworks type-safe em TypeScript e sistemas backend em Go e Python.",
+    "p1": "Sou um engenheiro de software que desenvolve tanto ferramentas open-source quanto aplicações corporativas em produção. Meu trabalho abrange IA e geração aumentada por recuperação (RAG), frameworks type-safe em TypeScript e sistemas backend em Rust, Go e Python.",
     "p2": "Valorizo a experiência do desenvolvedor, arquitetura limpa e ferramentas que tornam problemas difíceis em algo simples. Quando encontro uma dor recorrente, costumo transformá-la em uma biblioteca.",
     "stackTitle": "Tecnologias que uso",
     "focusTitle": "No que eu foco",
@@ -35,7 +36,7 @@
   },
   "projects": {
     "title": "Projetos",
-    "subtitle": "Trabalhos open-source dos quais me orgulho. Estrelas e linguagens vêm direto do GitHub.",
+    "subtitle": "Uma seleção de trabalhos open-source dos quais me orgulho, além de aplicações corporativas que desenvolvi. Estrelas e linguagens vêm direto do GitHub.",
     "featured": "Destaque",
     "more": "Mais no GitHub",
     "viewAll": "Ver todos os repositórios",
