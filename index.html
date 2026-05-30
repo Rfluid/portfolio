@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="Ruy Vieira — Software Engineer. Open-source projects in AI/RAG, TypeScript, Go and more."
+    />
+    <meta name="author" content="Ruy Vieira" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ruy Vieira — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Open-source projects in AI/RAG, TypeScript, Go and more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rfluid.astervia.tech" />
+
+    <!-- Set theme before paint to avoid flash of wrong theme -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          var isDark = stored ? stored === "dark" : prefersDark;
+          document.documentElement.classList.toggle("dark", isDark);
+        } catch (e) {}
+      })();
+    </script>
+
+    <title>Ruy Vieira — Software Engineer</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
