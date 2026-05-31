@@ -45,8 +45,7 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
           className="font-mono text-lg font-bold tracking-tight"
           onClick={() => setOpen(false)}
         >
-          <span className="gradient-text">ruy</span>
-          <span className="text-slate-400">.dev</span>
+          <span className="gradient-text">Rfluid</span>
         </a>
 
         {/* Desktop links */}
