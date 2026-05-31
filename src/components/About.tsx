@@ -4,12 +4,13 @@ import { useTranslation } from "react-i18next";
 import Section from "./Section";
 
 const STACK = [
+  "Rust",
+  "Go",
   "TypeScript",
   "Python",
-  "Go",
-  "Rust",
   "gpui",
   "React",
+  "Angular",
   "Node.js",
   "LangChain",
   "LangGraph",
