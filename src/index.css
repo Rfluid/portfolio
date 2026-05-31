@@ -7,9 +7,9 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
 
-  --color-brand-1: #6366f1; /* indigo  */
-  --color-brand-2: #8b5cf6; /* violet  */
-  --color-brand-3: #ec4899; /* pink    */
+  --color-brand-1: #22d3ee; /* cyan         */
+  --color-brand-2: #3b82f6; /* blue         */
+  --color-brand-3: #4338ca; /* deep indigo  */
 
   --animate-blob: blob 18s infinite ease-in-out;
   --animate-float: float 6s infinite ease-in-out;
@@ -63,7 +63,7 @@ body {
 }
 
 .dark body {
-  @apply bg-[#0a0a12] text-slate-200;
+  @apply bg-[#070b14] text-slate-200;
 }
 
 /* Reusable glass surface */
