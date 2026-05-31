@@ -14,7 +14,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "i18next": "^24.2.1",
+    "i18next": "^26.3.0",
     "i18next-browser-languagedetector": "^8.0.2",
     "lucide-react": "^0.469.0",
     "motion": "^11.15.0",
