@@ -68,6 +68,18 @@ export default function Hero() {
         animate="show"
         className="mx-auto max-w-3xl text-center"
       >
+        <motion.div variants={item} className="mb-6 flex justify-center">
+          <div className="rounded-full bg-gradient-to-br from-brand-1 to-brand-2 p-1 shadow-lg shadow-brand-2/30">
+            <img
+              src="/ruy-vieira.jpg"
+              alt={t("hero.name")}
+              width={128}
+              height={128}
+              className="h-28 w-28 rounded-full object-cover sm:h-32 sm:w-32"
+            />
+          </div>
+        </motion.div>
+
         <motion.p
           variants={item}
           className="mb-4 font-mono text-sm text-brand-2"
