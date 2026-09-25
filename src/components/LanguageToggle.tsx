@@ -1,4 +1,4 @@
-import { Languages } from "lucide-react";
+import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 
 const LANGS = [
@@ -18,29 +18,27 @@ export default function LanguageToggle() {
 
   return (
     <div
-      className="glass flex items-center gap-0.5 rounded-full p-1"
+      className="flex items-center font-mono text-xs"
       role="group"
       aria-label={t("language.toggle")}
     >
-      <Languages
-        size={15}
-        className="mx-1 text-slate-500 dark:text-slate-400"
-      />
-      {LANGS.map((l) => {
+      {LANGS.map((l, i) => {
         const active = current === l.code;
         return (
-          <button
-            key={l.code}
-            onClick={() => i18n.changeLanguage(l.code)}
-            aria-pressed={active}
-            className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-all ${
-              active
-                ? "bg-gradient-to-r from-brand-1 to-brand-2 text-white shadow"
-                : "text-slate-500 hover:text-brand-2 dark:text-slate-400"
-            }`}
-          >
-            {l.label}
-          </button>
+          <Fragment key={l.code}>
+            {i > 0 && <span className="opacity-50">/</span>}
+            <button
+              onClick={() => i18n.changeLanguage(l.code)}
+              aria-pressed={active}
+              className={`px-1 transition-colors duration-200 ${
+                active
+                  ? "bg-paper text-ink"
+                  : "underline underline-offset-2 hover:bg-paper hover:text-ink"
+              }`}
+            >
+              {l.label}
+            </button>
+          </Fragment>
         );
       })}
     </div>

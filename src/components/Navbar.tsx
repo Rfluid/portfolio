@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { Fragment } from "react";
+import { motion, useScroll, useSpring } from "motion/react";
 import { useTranslation } from "react-i18next";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
@@ -10,103 +9,79 @@ interface Props {
   onToggleTheme: () => void;
 }
 
-const LINKS = ["about", "projects", "contact"] as const;
+const LINKS = ["home", "about", "projects", "contact"] as const;
+
+/** Endless ticker — content is doubled so the -50% loop is seamless. */
+function Marquee({ text }: { text: string }) {
+  return (
+    <div className="group overflow-hidden border-b border-ink py-1 font-mono text-xs">
+      <div className="animate-marquee flex w-max whitespace-nowrap group-hover:[animation-play-state:paused]">
+        <span className="pr-8">{text}</span>
+        <span className="pr-8" aria-hidden>
+          {text}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export default function Navbar({ theme, onToggleTheme }: Props) {
   const { t } = useTranslation();
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
 
   return (
-    <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-2" : "py-4"
-      }`}
-    >
-      <nav
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-4 py-2.5 transition-all duration-300 sm:px-6 ${
-          scrolled
-            ? "glass shadow-lg"
-            : "border border-transparent bg-transparent"
-        } mx-3 sm:mx-auto`}
+    <>
+      {/* Title strip */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        className="flex items-center justify-between gap-3 bg-ink px-3 py-1.5 text-paper"
       >
         <a
           href="#home"
-          className="font-mono text-lg font-bold tracking-tight"
-          onClick={() => setOpen(false)}
+          className="truncate font-mono text-xs font-bold tracking-wide"
         >
-          <span className="gradient-text">Rfluid</span>
+          ~rfluid/index.html
         </a>
-
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-1 md:flex">
-          {LINKS.map((link) => (
-            <li key={link}>
-              <a
-                href={`#${link}`}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-brand-2 dark:text-slate-300"
-              >
-                {t(`nav.${link}`)}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex items-center gap-2">
-          <div className="hidden sm:block">
-            <LanguageToggle />
-          </div>
+        <div className="flex shrink-0 items-center gap-2">
+          <LanguageToggle />
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
-          <button
-            onClick={() => setOpen((o) => !o)}
-            aria-label="Menu"
-            aria-expanded={open}
-            className="glass grid h-10 w-10 place-items-center rounded-full text-slate-700 md:hidden dark:text-slate-200"
-          >
-            {open ? <X size={18} /> : <Menu size={18} />}
-          </button>
         </div>
-      </nav>
+      </motion.div>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="mx-3 mt-2 overflow-hidden md:hidden"
-          >
-            <ul className="glass flex flex-col gap-1 rounded-2xl p-3 shadow-lg">
-              {LINKS.map((link) => (
-                <li key={link}>
-                  <a
-                    href={`#${link}`}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-brand-2/10 hover:text-brand-2 dark:text-slate-200"
-                  >
-                    {t(`nav.${link}`)}
-                  </a>
+      <Marquee text={t("retro.marquee")} />
+
+      {/* Sticky link bar */}
+      <nav className="sticky top-0 z-50 border-b border-ink bg-paper transition-colors duration-400">
+        <ul className="flex flex-wrap items-center justify-center gap-x-1 px-2 py-2 text-[13px]">
+          <li aria-hidden className="text-muted">
+            [
+          </li>
+          {LINKS.map((link, i) => (
+            <Fragment key={link}>
+              {i > 0 && (
+                <li aria-hidden className="text-muted">
+                  |
                 </li>
-              ))}
-              <li className="px-2 pt-2">
-                <LanguageToggle />
+              )}
+              <li>
+                <a href={`#${link}`} className="link px-1">
+                  {t(`nav.${link}`)}
+                </a>
               </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+            </Fragment>
+          ))}
+          <li aria-hidden className="text-muted">
+            ]
+          </li>
+        </ul>
+        <motion.div
+          style={{ scaleX: progress }}
+          className="absolute inset-x-0 -bottom-px h-[3px] origin-left bg-ink"
+        />
+      </nav>
+    </>
   );
 }

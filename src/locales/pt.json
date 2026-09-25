@@ -63,5 +63,17 @@
   },
   "language": {
     "toggle": "Mudar idioma"
+  },
+  "retro": {
+    "welcome": "Bem-vindo à minha homepage!",
+    "marquee": "*** Bem-vindo à homepage de Ruy Vieira *** Rust · Go · TypeScript · IA/RAG *** Aberto a colaborações *** Obrigado pela visita! ***",
+    "updated": "Última atualização",
+    "bestViewed": "Melhor visualizado em qualquer navegador, em qualquer resolução.",
+    "top": "topo",
+    "otherRepos": "Outros repositórios",
+    "colName": "Nome",
+    "colDesc": "Descrição",
+    "colLang": "Ling.",
+    "figure": "Fig. 1 — o autor"
   }
 }
