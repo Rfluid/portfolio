@@ -1,4 +1,5 @@
-import { Moon, Sun } from "lucide-react";
+import type { MouseEvent } from "react";
+import { flushSync } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
@@ -11,23 +12,35 @@ export default function ThemeToggle({ theme, onToggle }: Props) {
   const { t } = useTranslation();
   const isDark = theme === "dark";
 
+  // Circular wipe from the button when the View Transitions API exists.
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    const root = document.documentElement;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (!document.startViewTransition || reduced) return onToggle();
+    root.style.setProperty("--vt-x", `${e.clientX}px`);
+    root.style.setProperty("--vt-y", `${e.clientY}px`);
+    document.startViewTransition(() => flushSync(onToggle));
+  };
+
   return (
     <button
-      onClick={onToggle}
+      onClick={handleClick}
       aria-label={t("theme.toggle")}
       title={t("theme.toggle")}
-      className="glass relative grid h-10 w-10 place-items-center overflow-hidden rounded-full text-slate-700 transition-colors hover:text-brand-2 dark:text-slate-200"
+      className="relative h-5 w-14 overflow-hidden border border-paper font-mono text-[10px] font-bold uppercase transition-colors duration-200 hover:bg-paper hover:text-ink"
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={theme}
-          initial={{ y: -20, opacity: 0, rotate: -90 }}
-          animate={{ y: 0, opacity: 1, rotate: 0 }}
-          exit={{ y: 20, opacity: 0, rotate: 90 }}
-          transition={{ duration: 0.25 }}
-          className="absolute"
+          initial={{ y: -14, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 14, opacity: 0 }}
+          transition={{ duration: 0.18 }}
+          className="absolute inset-0 grid place-items-center"
         >
-          {isDark ? <Moon size={18} /> : <Sun size={18} />}
+          {isDark ? t("theme.dark") : t("theme.light")}
         </motion.span>
       </AnimatePresence>
     </button>

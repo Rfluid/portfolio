@@ -5,27 +5,27 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="border-t border-slate-200/60 px-5 py-10 dark:border-white/10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          © Ruy Vieira · {t("footer.rights")}
-        </p>
-
-        <div className="flex items-center gap-3">
-          {SOCIALS.map((s) => (
+    <footer className="border-t-4 border-double border-ink px-4 py-8 text-center text-[12px] sm:px-8">
+      <p>
+        {SOCIALS.map((s, i) => (
+          <span key={s.label}>
+            {i > 0 && " | "}
             <a
-              key={s.label}
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={s.label}
-              className="text-slate-400 transition-colors hover:text-brand-2"
+              className="link"
             >
-              <s.icon size={18} />
+              {s.label}
             </a>
-          ))}
-        </div>
-      </div>
+          </span>
+        ))}
+      </p>
+
+      <p className="mt-3 text-muted">© Ruy Vieira · {t("footer.rights")}</p>
+      <p className="mt-1 font-mono text-[11px] text-muted">
+        {t("retro.updated")}: {__BUILD_DATE__} · {t("retro.bestViewed")}
+      </p>
     </footer>
   );
 }

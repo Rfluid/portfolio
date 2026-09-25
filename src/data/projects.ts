@@ -43,6 +43,17 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     highlight: true,
   },
   {
+    owner: "Rfluid",
+    repo: "gpui-selectable-text",
+    title: "gpui-selectable-text",
+    blurb: {
+      en: "Read-only selectable text for GPUI — a drop-in element that adds mouse and keyboard selection and copy on top of laid-out glyphs, without turning labels into inputs.",
+      pt: "Texto selecionável somente leitura para GPUI — um elemento plug-and-play que adiciona seleção por mouse e teclado e cópia sobre os glifos renderizados, sem transformar rótulos em inputs.",
+      es: "Texto seleccionable de solo lectura para GPUI — un elemento plug-and-play que añade selección con ratón y teclado y copia sobre los glifos renderizados, sin convertir etiquetas en inputs.",
+    },
+    tags: ["Rust", "GPUI", "UI", "Library"],
+  },
+  {
     owner: "Astervia",
     repo: "proximity-internet-mesh",
     title: "Proximity Internet Mesh",

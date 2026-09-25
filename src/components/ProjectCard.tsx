@@ -1,7 +1,5 @@
 import { motion } from "motion/react";
-import { ExternalLink, Github, GitFork, Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { langColor } from "../lib/langColors";
 
 export interface CardData {
   name: string;
@@ -17,6 +15,7 @@ export interface CardData {
   highlight?: boolean;
 }
 
+/** Featured project box: inverted header row, like a <th>-topped table. */
 export default function ProjectCard({
   data,
   index,
@@ -28,93 +27,56 @@ export default function ProjectCard({
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: Math.min(index * 0.06, 0.4) }}
-      className={`group glass relative flex flex-col overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-brand-2/10 ${
-        data.highlight ? "ring-1 ring-brand-2/30" : ""
-      }`}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.45, delay: Math.min(index * 0.05, 0.3) }}
+      className="group flex flex-col border border-ink bg-paper transition-[transform,box-shadow] duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--ink)]"
     >
-      {/* hover glow */}
-      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand-2/0 blur-3xl transition-all duration-500 group-hover:bg-brand-2/20" />
+      <header className="flex items-center justify-between gap-2 bg-ink px-2.5 py-1 text-paper">
+        <h3 className="truncate font-mono text-sm font-bold">{data.title}</h3>
+      </header>
 
-      <div className="mb-3 flex items-start justify-between gap-3">
-        <h3 className="text-lg font-bold tracking-tight text-slate-800 dark:text-white">
-          {data.title}
-        </h3>
-        {data.featured && (
-          <span className="shrink-0 rounded-full bg-gradient-to-r from-brand-1 to-brand-2 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-            {t("projects.featured")}
-          </span>
-        )}
-      </div>
-
-      <p className="mb-4 flex-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+      <p className="flex-1 px-2.5 py-3 font-serif text-[15px] leading-snug">
         {data.description}
       </p>
 
       {data.tags && data.tags.length > 0 && (
-        <div className="mb-4 flex flex-wrap gap-1.5">
-          {data.tags.slice(0, 5).map((tag) => (
-            <span
-              key={tag}
-              className="rounded-md bg-brand-2/10 px-2 py-0.5 text-[11px] font-medium text-brand-2"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        <p className="px-2.5 pb-3 font-mono text-[11px] text-muted">
+          {data.tags
+            .slice(0, 5)
+            .map((tag) => `[${tag}]`)
+            .join(" ")}
+        </p>
       )}
 
-      <div className="mt-auto flex items-center justify-between border-t border-slate-200/60 pt-4 dark:border-white/10">
-        <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
-          {data.language && (
-            <span className="flex items-center gap-1.5">
-              <span
-                className="h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: langColor(data.language) }}
-              />
-              {data.language}
-            </span>
-          )}
-          {data.stars > 0 && (
-            <span className="flex items-center gap-1">
-              <Star size={13} /> {data.stars}
-            </span>
-          )}
-          {data.forks > 0 && (
-            <span className="flex items-center gap-1">
-              <GitFork size={13} /> {data.forks}
-            </span>
-          )}
-        </div>
-
-        <div className="flex items-center gap-1">
+      <footer className="flex items-center justify-between border-t border-dotted border-ink px-2.5 py-1.5 font-mono text-[11px]">
+        <span className="text-muted">
+          {data.language ?? "—"}
+          {data.stars > 0 && ` · ★${data.stars}`}
+          {data.forks > 0 && ` · ⑂${data.forks}`}
+        </span>
+        <span className="flex gap-2">
           {data.homepage && (
             <a
               href={data.homepage}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={t("projects.demo")}
-              title={t("projects.demo")}
-              className="grid h-8 w-8 place-items-center rounded-lg text-slate-500 transition-colors hover:bg-brand-2/10 hover:text-brand-2 dark:text-slate-400"
+              className="link"
             >
-              <ExternalLink size={16} />
+              {t("projects.demo")}
             </a>
           )}
           <a
             href={data.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={t("projects.code")}
-            title={t("projects.code")}
-            className="grid h-8 w-8 place-items-center rounded-lg text-slate-500 transition-colors hover:bg-brand-2/10 hover:text-brand-2 dark:text-slate-400"
+            className="link"
           >
-            <Github size={16} />
+            {t("projects.code")}
           </a>
-        </div>
-      </div>
+        </span>
+      </footer>
     </motion.article>
   );
 }

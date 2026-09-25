@@ -1,6 +1,5 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, Loader2, TriangleAlert } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Section from "./Section";
 import ProjectCard, { type CardData } from "./ProjectCard";
@@ -15,6 +14,17 @@ function resolveLang(lng: string | undefined): Lang {
   if (lng?.startsWith("pt")) return "pt";
   if (lng?.startsWith("es")) return "es";
   return "en";
+}
+
+/** Classic | / - \ text spinner. */
+function Spinner() {
+  const frames = "|/-\\";
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setI((n) => (n + 1) % frames.length), 120);
+    return () => clearInterval(id);
+  }, []);
+  return <span className="inline-block w-3">{frames[i]}</span>;
 }
 
 export default function Projects() {
@@ -60,7 +70,6 @@ export default function Projects() {
           language: r.language,
           stars: r.stargazers_count,
           forks: r.forks_count,
-          tags: r.topics?.slice(0, 4),
         })),
     [repos],
   );
@@ -68,59 +77,100 @@ export default function Projects() {
   return (
     <Section
       id="projects"
+      index={2}
       title={t("projects.title")}
       subtitle={t("projects.subtitle")}
     >
-      {/* Featured */}
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {featured.map((p, i) => (
           <ProjectCard key={p.name} data={p} index={i} />
         ))}
       </div>
 
-      {/* Loading / error states for the live grid */}
       {loading && (
-        <div className="mt-12 flex items-center justify-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-          <Loader2 size={16} className="animate-spin" />
-          {t("projects.loading")}
-        </div>
+        <p className="mt-10 text-center font-mono text-sm">
+          <Spinner /> {t("projects.loading")}
+        </p>
       )}
 
       {error && (
-        <div className="mt-12 flex items-center justify-center gap-2 text-sm text-amber-600 dark:text-amber-400">
-          <TriangleAlert size={16} />
-          {t("projects.error")}
-        </div>
+        <p className="mt-10 border border-dashed border-ink p-3 text-center font-mono text-sm">
+          [!] {t("projects.error")}
+        </p>
       )}
 
-      {/* Live grid */}
       {grid.length > 0 && (
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {grid.map((p, i) => (
-            <ProjectCard key={p.name} data={p} index={i} />
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="mt-12"
+        >
+          <h3 className="mb-2 font-serif text-2xl font-bold">
+            {t("retro.otherRepos")}{" "}
+            <span className="font-mono text-sm font-normal text-muted">
+              ({grid.length})
+            </span>
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse border border-ink text-left text-[12px]">
+              <thead className="bg-ink text-paper">
+                <tr>
+                  <th className="px-2 py-1">{t("retro.colName")}</th>
+                  <th className="hidden px-2 py-1 sm:table-cell">
+                    {t("retro.colDesc")}
+                  </th>
+                  <th className="px-2 py-1">{t("retro.colLang")}</th>
+                  <th className="px-2 py-1 text-right">★</th>
+                </tr>
+              </thead>
+              <tbody>
+                {grid.map((p) => (
+                  <tr
+                    key={p.name}
+                    className="border-t border-ink align-top transition-colors duration-150 even:bg-[var(--tile)] hover:bg-ink hover:text-paper"
+                  >
+                    <td className="px-2 py-1.5 font-mono">
+                      <a
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline underline-offset-2"
+                      >
+                        {p.title}
+                      </a>
+                      <span className="mt-0.5 block font-serif text-[13px] sm:hidden">
+                        {p.description}
+                      </span>
+                    </td>
+                    <td className="hidden px-2 py-1.5 font-serif text-[13px] sm:table-cell">
+                      {p.description}
+                    </td>
+                    <td className="px-2 py-1.5 font-mono whitespace-nowrap">
+                      {p.language ?? "—"}
+                    </td>
+                    <td className="px-2 py-1.5 text-right font-mono">
+                      {p.stars}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </motion.div>
       )}
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="mt-12 text-center"
-      >
+      <p className="mt-8 text-center text-[13px]">
         <a
           href="https://github.com/Rfluid?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-brand-2 transition-colors hover:text-brand-1"
+          className="link"
         >
-          {t("projects.viewAll")}
-          <ArrowUpRight
-            size={16}
-            className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          />
+          {t("projects.viewAll")} &raquo;
         </a>
-      </motion.div>
+      </p>
     </Section>
   );
 }

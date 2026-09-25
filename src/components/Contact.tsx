@@ -10,44 +10,52 @@ export default function Contact() {
   return (
     <Section
       id="contact"
+      index={3}
       title={t("contact.title")}
       subtitle={t("contact.subtitle")}
     >
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.6 }}
-        className="glass relative mx-auto max-w-3xl overflow-hidden rounded-3xl p-8 text-center sm:p-12"
+        transition={{ duration: 0.5 }}
+        className="mx-auto max-w-lg"
       >
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-1/10 via-transparent to-brand-3/10" />
-        <div className="relative">
-          <p className="mb-8 text-lg font-medium text-slate-600 dark:text-slate-300">
+        <table className="w-full border-collapse border border-ink text-[13px]">
+          <caption className="mb-2 font-serif text-lg italic">
             {t("contact.cta")}
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          </caption>
+          <tbody>
             {links.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target={s.href.startsWith("http") ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3 rounded-2xl border border-slate-200/70 bg-white/50 px-5 py-3 text-left transition-all hover:-translate-y-1 hover:border-brand-2/50 hover:shadow-lg dark:border-white/10 dark:bg-white/5"
-              >
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand-1 to-brand-2 text-white">
-                  <s.icon size={19} />
-                </span>
-                <span className="flex flex-col">
-                  <span className="text-xs text-slate-400">{s.label}</span>
-                  <span className="text-sm font-semibold text-slate-700 transition-colors group-hover:text-brand-2 dark:text-slate-200">
-                    {s.handle}
+              <tr key={s.label} className="border-t border-ink">
+                <th className="w-1/3 bg-face px-3 py-2 text-left font-bold">
+                  <span className="inline-flex items-center gap-2">
+                    <s.icon size={14} aria-hidden />
+                    {s.label}
                   </span>
-                </span>
-              </a>
+                </th>
+                <td className="px-3 py-2 font-mono break-all">
+                  <a
+                    href={s.href}
+                    target={s.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    className="link"
+                  >
+                    {s.handle}
+                  </a>
+                </td>
+              </tr>
             ))}
-          </div>
-        </div>
+          </tbody>
+        </table>
+
+        {EMAIL_SOCIAL && (
+          <p className="mt-6 text-center">
+            <a href={EMAIL_SOCIAL.href} className="btn">
+              ✉ {t("contact.emailMe")}
+            </a>
+          </p>
+        )}
       </motion.div>
     </Section>
   );

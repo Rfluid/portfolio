@@ -3,48 +3,59 @@
 /* Enable class-based dark mode (toggle) on top of system preference */
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
-
-  --color-brand-1: #22d3ee; /* cyan         */
-  --color-brand-2: #3b82f6; /* blue         */
-  --color-brand-3: #4338ca; /* deep indigo  */
-
-  --animate-blob: blob 18s infinite ease-in-out;
-  --animate-float: float 6s infinite ease-in-out;
-  --animate-shimmer: shimmer 2.5s linear infinite;
+/*
+ * Early-2000s monochrome palette. Light = black ink on white paper,
+ * dark = inverted. Everything reads from these tokens so the theme swap
+ * is a pure variable flip.
+ */
+:root {
+  --paper: #ffffff;
+  --ink: #000000;
+  --muted: #555555;
+  --rule: #000000;
+  --bevel-hi: #ffffff;
+  --bevel-lo: #808080;
+  --face: #d4d4d4;
+  --tile: #e6e6e6;
 }
 
-@keyframes blob {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
+.dark {
+  --paper: #000000;
+  --ink: #ffffff;
+  --muted: #a8a8a8;
+  --rule: #ffffff;
+  --bevel-hi: #7a7a7a;
+  --bevel-lo: #1c1c1c;
+  --face: #2b2b2b;
+  --tile: #141414;
+}
+
+@theme inline {
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+  --font-sans: Verdana, Tahoma, Geneva, sans-serif;
+  --font-mono: "Courier New", Courier, ui-monospace, monospace;
+
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-face: var(--face);
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-blink: blink 1s steps(1) infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
   }
-  33% {
-    transform: translate(40px, -50px) scale(1.15);
-  }
-  66% {
-    transform: translate(-30px, 30px) scale(0.9);
+  to {
+    transform: translateX(-50%);
   }
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
+@keyframes blink {
   50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
+    opacity: 0;
   }
 }
 
@@ -54,43 +65,140 @@
 }
 
 html {
-  scroll-padding-top: 5rem; /* offset for fixed navbar on anchor jumps */
+  scroll-padding-top: 3.5rem; /* offset for sticky nav bar on anchor jumps */
 }
 
 body {
-  @apply bg-slate-50 text-slate-800 antialiased transition-colors duration-500;
+  @apply antialiased;
   font-family: var(--font-sans);
+  color: var(--ink);
+  background-color: var(--tile);
+  transition:
+    background-color 0.4s,
+    color 0.4s;
 }
 
-.dark body {
-  @apply bg-[#070b14] text-slate-200;
+::selection {
+  background: var(--ink);
+  color: var(--paper);
 }
 
-/* Reusable glass surface */
-.glass {
-  @apply border border-white/40 bg-white/60 backdrop-blur-xl;
+/* Links: always underlined, invert with a left-to-right wipe on hover. */
+.link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  background-image: linear-gradient(var(--ink), var(--ink));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition:
+    background-size 0.25s ease,
+    color 0.25s ease;
 }
-.dark .glass {
-  @apply border-white/10 bg-white/[0.04];
+.link:hover,
+.link:focus-visible {
+  color: var(--paper);
+  background-size: 100% 100%;
+  outline: none;
 }
 
-/* Gradient text */
-.gradient-text {
-  @apply bg-gradient-to-r from-brand-1 via-brand-2 to-brand-3 bg-clip-text text-transparent;
+/* Win9x-style bevelled push button that inverts on hover. */
+.btn {
+  @apply inline-flex items-center gap-2 px-4 py-1.5 text-[13px] font-bold;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--face);
+  border: 1px solid var(--ink);
+  box-shadow:
+    inset 1px 1px 0 var(--bevel-hi),
+    inset -2px -2px 0 var(--bevel-lo);
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    transform 0.1s;
+}
+.btn:hover,
+.btn:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  outline: none;
+}
+.btn:active,
+.btn[aria-pressed="true"] {
+  box-shadow:
+    inset 2px 2px 0 var(--bevel-lo),
+    inset -1px -1px 0 var(--bevel-hi);
+  transform: translate(1px, 1px);
 }
 
-/* Custom scrollbar */
+/* Sunken panel (text-field / inset table look). */
+.sunken {
+  border: 1px solid var(--ink);
+  box-shadow:
+    inset 2px 2px 0 var(--bevel-lo),
+    inset -1px -1px 0 var(--bevel-hi);
+}
+
+/* Classic <hr noshade> double rule. */
+.rule-double {
+  border: 0;
+  border-top: 3px double var(--rule);
+}
+
+/* Halftone photo: grayscale + contrast, with a dot screen on top. */
+.halftone {
+  position: relative;
+}
+.halftone img {
+  filter: grayscale(1) contrast(1.35) brightness(1.05);
+  transition: filter 0.5s ease;
+}
+.halftone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgb(0 0 0 / 0.55) 0.8px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  transition: opacity 0.5s ease;
+}
+.halftone:hover img {
+  filter: grayscale(1) contrast(1.05);
+}
+.halftone:hover::after {
+  opacity: 0;
+}
+
+/* Theme swap: circular wipe from the toggle via the View Transitions API. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  animation: theme-wipe 0.55s ease-in-out;
+}
+@keyframes theme-wipe {
+  from {
+    clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 0));
+  }
+  to {
+    clip-path: circle(150vmax at var(--vt-x, 50%) var(--vt-y, 0));
+  }
+}
+
+/* Square, chunky scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 14px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--tile);
 }
 ::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-slate-300/70;
-}
-.dark ::-webkit-scrollbar-thumb {
-  @apply bg-slate-700/70;
+  background: var(--face);
+  border: 1px solid var(--ink);
+  box-shadow: inset 1px 1px 0 var(--bevel-hi);
 }
 
 /* Respect reduced motion */
