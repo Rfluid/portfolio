@@ -145,31 +145,6 @@ body {
   border-top: 3px double var(--rule);
 }
 
-/* Halftone photo: grayscale + contrast, with a dot screen on top. */
-.halftone {
-  position: relative;
-}
-.halftone img {
-  filter: grayscale(1) contrast(1.35) brightness(1.05);
-  transition: filter 0.5s ease;
-}
-.halftone::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(rgb(0 0 0 / 0.55) 0.8px, transparent 1px);
-  background-size: 3px 3px;
-  mix-blend-mode: multiply;
-  transition: opacity 0.5s ease;
-}
-.halftone:hover img {
-  filter: grayscale(1) contrast(1.05);
-}
-.halftone:hover::after {
-  opacity: 0;
-}
-
 /* Theme swap: circular wipe from the toggle via the View Transitions API. */
 ::view-transition-old(root),
 ::view-transition-new(root) {

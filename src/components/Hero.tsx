@@ -66,15 +66,13 @@ export default function Hero() {
       >
         <motion.figure variants={item} className="mx-auto w-44 sm:w-48">
           <div className="border border-ink p-1.5">
-            <div className="halftone">
-              <img
-                src="/ruy-vieira.jpg"
-                alt={t("hero.name")}
-                width={192}
-                height={192}
-                className="block aspect-square w-full object-cover"
-              />
-            </div>
+            <img
+              src="/ruy-vieira.jpg"
+              alt={t("hero.name")}
+              width={192}
+              height={192}
+              className="block aspect-square w-full object-cover"
+            />
           </div>
           <figcaption className="mt-1.5 text-center font-serif text-xs text-muted italic">
             {t("retro.figure")}
