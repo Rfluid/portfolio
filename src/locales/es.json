@@ -12,10 +12,10 @@
       "Ingeniero de Software",
       "Ingeniero Rust",
       "Creador Open-Source",
-      "Ingeniero de IA / RAG",
+      "Ingeniero de IA",
       "Desarrollador Full-Stack"
     ],
-    "tagline": "Desarrollo software en IA, sistemas type-safe e infraestructura backend — desde herramientas open-source hasta aplicaciones empresariales.",
+    "tagline": "Desarrollo software en Rust, Go y blockchain — desde redes peer-to-peer y contratos inteligentes hasta infraestructura backend, con TypeScript e IA cuando el trabajo lo requiere.",
     "ctaProjects": "Ver Proyectos",
     "ctaContact": "Contactar",
     "scroll": "Desliza"
@@ -23,15 +23,15 @@
   "about": {
     "title": "Sobre Mí",
     "subtitle": "Un poco sobre quién soy y lo que hago.",
-    "p1": "Soy un ingeniero de software que desarrolla tanto herramientas open-source como aplicaciones empresariales en producción. Mi trabajo abarca IA y generación aumentada por recuperación (RAG), frameworks type-safe en TypeScript y sistemas backend en Rust, Go y Python.",
-    "p2": "Valoro la experiencia del desarrollador, la arquitectura limpia y las herramientas que hacen simples los problemas difíciles. Cuando encuentro un dolor recurrente, suelo convertirlo en una librería.",
+    "p1": "Soy un ingeniero de software enfocado en Rust, Go y blockchain. Desarrollo infraestructura backend, redes peer-to-peer y sistemas de contratos inteligentes, tanto como herramientas open-source como en producción. También trabajo con TypeScript y desarrollo agentes de IA.",
+    "p2": "Me importan el rendimiento, la corrección y la arquitectura limpia, y las herramientas que hacen que los problemas difíciles parezcan simples. Cuando encuentro un problema recurrente, suelo convertirlo en una biblioteca.",
     "stackTitle": "Tecnologías que uso",
     "focusTitle": "En qué me enfoco",
     "focus": [
-      "Aplicaciones de IA / RAG & LLM",
-      "APIs type-safe & herramientas para devs",
-      "Sistemas backend & infraestructura",
-      "Arquitectura limpia y mantenible"
+      "Programación de sistemas en Rust",
+      "Blockchain y contratos inteligentes",
+      "Servicios backend e infraestructura en Rust y Go",
+      "Redes peer-to-peer y descentralizadas"
     ]
   },
   "projects": {
@@ -66,7 +66,7 @@
   },
   "retro": {
     "welcome": "¡Bienvenido a mi página personal!",
-    "marquee": "*** Bienvenido a la página de Ruy Vieira *** Rust · Go · TypeScript · IA/RAG *** Abierto a colaboraciones *** ¡Gracias por la visita! ***",
+    "marquee": "*** Bienvenido a la página de Ruy Vieira *** Rust · Go · TypeScript · IA *** Abierto a colaboraciones *** ¡Gracias por la visita! ***",
     "updated": "Última actualización",
     "bestViewed": "Se ve mejor en cualquier navegador, a cualquier resolución.",
     "top": "arriba",
