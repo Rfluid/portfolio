@@ -12,10 +12,10 @@
       "Software Engineer",
       "Rust Engineer",
       "Open-Source Builder",
-      "AI / RAG Engineer",
+      "AI Engineer",
       "Full-Stack Developer"
     ],
-    "tagline": "I build software across AI, type-safe systems, and backend infrastructure — from open-source tools to enterprise applications.",
+    "tagline": "I build software in Rust, Go and on the blockchain — from peer-to-peer networks and smart contracts to backend infrastructure, with TypeScript and AI when the job calls for them.",
     "ctaProjects": "View Projects",
     "ctaContact": "Get in Touch",
     "scroll": "Scroll"
@@ -23,15 +23,15 @@
   "about": {
     "title": "About Me",
     "subtitle": "A bit about who I am and what I do.",
-    "p1": "I'm a software engineer who builds both open-source tools and production enterprise applications. My work spans AI and retrieval-augmented generation, type-safe TypeScript frameworks, and backend systems in Rust, Go and Python.",
-    "p2": "I care about developer experience, clean architecture, and tools that make hard problems feel simple. When I find a recurring pain point, I tend to turn it into a library.",
+    "p1": "I'm a software engineer focused on Rust, Go and blockchain. I build backend infrastructure, peer-to-peer networking and smart-contract systems, both as open-source tools and in production. I also work with TypeScript and build AI agents.",
+    "p2": "I care about performance, correctness and clean architecture, and about tools that make hard problems feel simple. When I find a recurring pain point, I tend to turn it into a library.",
     "stackTitle": "Tech I work with",
     "focusTitle": "What I focus on",
     "focus": [
-      "AI / RAG & LLM applications",
-      "Type-safe APIs & developer tooling",
-      "Backend systems & infrastructure",
-      "Clean, maintainable architecture"
+      "Systems programming in Rust",
+      "Blockchain & smart contracts",
+      "Backend services & infrastructure in Rust and Go",
+      "Peer-to-peer & decentralized networks"
     ]
   },
   "projects": {
@@ -66,7 +66,7 @@
   },
   "retro": {
     "welcome": "Welcome to my homepage!",
-    "marquee": "*** Welcome to Ruy Vieira's homepage *** Rust · Go · TypeScript · AI/RAG *** Open to collaborations *** Thanks for stopping by! ***",
+    "marquee": "*** Welcome to Ruy Vieira's homepage *** Rust · Go · TypeScript · AI *** Open to collaborations *** Thanks for stopping by! ***",
     "updated": "Last updated",
     "bestViewed": "Best viewed with any browser, at any resolution.",
     "top": "top",
