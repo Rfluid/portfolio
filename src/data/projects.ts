@@ -54,6 +54,39 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     tags: ["Rust", "GPUI", "UI", "Library"],
   },
   {
+    owner: "Rfluid",
+    repo: "redline",
+    title: "Redline",
+    blurb: {
+      en: "Inline feedback for coding-agent artifacts — comment directly on text, charts, and UI, and let your agent respond and make changes in place.",
+      pt: "Feedback inline para artefatos criados por agentes de código — comente diretamente em textos, gráficos e interfaces, e deixe o agente responder e fazer alterações no lugar.",
+      es: "Feedback inline para artefactos creados por agentes de código — comenta directamente sobre textos, gráficos e interfaces, y deja que el agente responda y haga cambios en el lugar.",
+    },
+    tags: ["Rust", "AI", "MCP", "Developer Tools"],
+  },
+  {
+    owner: "Rfluid",
+    repo: "mission-control",
+    title: "Mission Control",
+    blurb: {
+      en: "A live control center for coding-agent runs — track tasks, plans, PRs, tests, subagents, decisions, and anything waiting for your input.",
+      pt: "Um centro de controle em tempo real para execuções de agentes de código — acompanhe tarefas, planos, PRs, testes, subagentes, decisões e tudo que depende da sua resposta.",
+      es: "Un centro de control en tiempo real para ejecuciones de agentes de código — sigue tareas, planes, PRs, pruebas, subagentes, decisiones y todo lo que espera tu respuesta.",
+    },
+    tags: ["Rust", "AI", "Dashboard", "Developer Tools"],
+  },
+  {
+    owner: "Rfluid",
+    repo: "handoff",
+    title: "Handoff",
+    blurb: {
+      en: "Move coding-agent work between sessions or devices while preserving context, repository state, branches, and everything the next agent needs to continue.",
+      pt: "Transfira o trabalho de agentes de código entre sessões ou dispositivos preservando contexto, estado do repositório, branches e tudo que o próximo agente precisa para continuar.",
+      es: "Transfiere el trabajo de agentes de código entre sesiones o dispositivos preservando el contexto, el estado del repositorio, las ramas y todo lo que el siguiente agente necesita para continuar.",
+    },
+    tags: ["Python", "AI", "Git", "CLI"],
+  },
+  {
     owner: "Astervia",
     repo: "proximity-internet-mesh",
     title: "Proximity Internet Mesh",
